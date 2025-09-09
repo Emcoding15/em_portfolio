@@ -1,3 +1,35 @@
+# Portfolio Website
+
+This is a personal portfolio website built with Next.js, TypeScript, Tailwind CSS, and ESLint. It features a homepage, about section, projects showcase, and contact form.
+
+## Getting Started
+
+1. Install dependencies:
+   ```powershell
+   npm install
+   ```
+2. Run the development server:
+   ```powershell
+   npm run dev
+   ```
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Features
+- Modern, responsive design
+- Homepage introduction
+- About section
+- Projects showcase
+- Contact form
+
+## Tech Stack
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [ESLint](https://eslint.org/)
+
+---
+Replace placeholder content with your own information and projects.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
