@@ -30,7 +30,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-  <section className="section flex-col text-center" style={{background: "var(--gray)"}}>
+  <section className="section flex-col text-center" style={{background: "var(--background)"}}>
   <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-[var(--accent)]">About Me</h2>
   <p className="max-w-xl mx-auto text-gray-300 text-lg md:text-xl">
           Hi, I'm Jan. I love crafting elegant solutions to complex problems and designing interfaces that feel effortless. My focus is on modern web technologies, clean code, and user-centric design.
@@ -57,7 +57,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-  <section className="section flex-col text-center" style={{background: "var(--gray)"}}>
+  <section className="section flex-col text-center" style={{background: "var(--background)"}}>
   <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-[var(--accent)]">Contact</h2>
         <form className="max-w-md mx-auto flex flex-col gap-4 text-left">
           <input type="text" name="name" placeholder="Your Name" className="border border-gray-700 bg-[var(--background)] text-[var(--foreground)] rounded px-4 py-2 focus:outline-none focus:border-[var(--accent)]" required />
