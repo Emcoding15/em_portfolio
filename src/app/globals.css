@@ -10,9 +10,6 @@
   --black: #222;
   --white: #171717;
 }
-
-
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -22,7 +19,7 @@ body {
 }
 
 main {
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   overflow-y: scroll;
   height: 100vh;
 }
