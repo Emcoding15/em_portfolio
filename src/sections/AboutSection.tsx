@@ -13,7 +13,7 @@ const AboutSection: React.FC = () => (
       {skillGroups.map((group) => (
       <div
           key={group.category}
-        className="w-80 flex flex-col items-center border border-dashed border-[var(--accent)]"
+  className="w-80 flex flex-col items-center border border-dashed border-[var(--accent)] overflow-visible"
         >
           <h3 className="text-lg font-semibold text-[var(--accent)] mb-2 text-center whitespace-nowrap">{group.category}</h3>
           <div className="flex flex-row flex-wrap gap-3 w-full justify-center">
@@ -22,6 +22,7 @@ const AboutSection: React.FC = () => (
                 key={skill.label}
                 imgUrl={skill.imgUrl}
                 label={skill.label}
+                description={skill.description}
               />
             ))}
           </div>
