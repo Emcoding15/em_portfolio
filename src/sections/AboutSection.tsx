@@ -13,7 +13,7 @@ const AboutSection: React.FC = () => (
   initial={{ opacity: 0, y: 30 }}
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: false, amount: 0.3 }}
-  transition={{ duration: 1.1, ease: "easeOut" }}
+  transition={{ duration: 1.7, ease: "easeInOut" }}
   >
     <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-[var(--accent)]">About Me</h2>
     <p className="max-w-2xl mx-auto text-gray-300 text-lg md:text-xl mb-8">

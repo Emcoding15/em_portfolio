@@ -10,7 +10,7 @@ const HeroSection: React.FC = () => (
   initial={{ opacity: 0, y: 30 }}
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: false, amount: 0.3 }}
-  transition={{ duration: 1.1, ease: "easeOut" }}
+    transition={{ duration: 1.7, ease: "easeInOut" }}
   >
     <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight text-[var(--foreground)]">John Michael Guerra</h1>
     <h2 className="text-xl md:text-2xl font-medium mb-2 text-[var(--accent)]">Software Engineer</h2>

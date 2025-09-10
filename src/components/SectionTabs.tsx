@@ -43,7 +43,7 @@ export default function SectionTabs() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-[var(--background)] border-b border-[var(--gray)] flex justify-center py-2">
+    <nav className="fixed top-0 z-30 bg-[var(--background)] border-b border-[var(--gray)] flex justify-cente py-2">
       <ul className="flex gap-6">
         {sections.map((section) => (
           <li key={section.id}>
