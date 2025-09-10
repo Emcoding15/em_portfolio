@@ -19,7 +19,7 @@ export default function Header() {
         ${scrolled ? "bg-black/80 backdrop-blur border-b border-gray-800 shadow-lg py-2" : "bg-transparent py-4"}`}
     >
       <nav className="max-w-5xl mx-auto flex items-center justify-between px-6">
-  <span className="text-xl font-bold text-[var(--accent)] tracking-tight">John Michae Guerra</span>
+  <span className="text-xl font-bold text-[var(--accent)] tracking-tight">John Michael Guerra</span>
         <button
           className="md:hidden flex flex-col justify-between w-8 h-6 focus:outline-none"
           aria-label="Toggle menu"
