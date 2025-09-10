@@ -22,7 +22,6 @@ const AboutSection: React.FC = () => (
                 key={skill.label}
                 imgUrl={skill.imgUrl}
                 label={skill.label}
-                description={skill.description}
               />
             ))}
           </div>
