@@ -9,7 +9,7 @@ const HeroSection: React.FC = () => (
     style={{ background: "var(--background)" }}
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
-  viewport={{ once: false, amount: 0.3 }}
+    viewport={{ once: false, amount: 0.3 }}
     transition={{ duration: 1 }}
   >
     <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight text-[var(--foreground)]">John Michael Guerra</h1>

@@ -27,7 +27,7 @@ const ProjectsSection: React.FC = () => (
     style={{ background: "var(--background)" }}
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
-  viewport={{ once: false, amount: 0.3 }}
+    viewport={{ once: false, amount: 0.3 }}
     transition={{ duration: 1 }}
   >
     <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-[var(--accent)]">Projects</h2>
