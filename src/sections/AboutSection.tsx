@@ -10,10 +10,10 @@ const AboutSection: React.FC = () => (
     id="about"
     className="section flex-col text-center"
     style={{ background: "var(--background)" }}
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: false, amount: 0.3 }}
-  transition={{ duration: 1.7, ease: "easeInOut" }}
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: false, amount: 0.3 }}
+    transition={{ duration: 2, ease: "easeOut" }}
   >
     <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-[var(--accent)]">About Me</h2>
     <p className="max-w-2xl mx-auto text-gray-300 text-lg md:text-xl mb-8">
