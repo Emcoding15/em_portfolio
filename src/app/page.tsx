@@ -36,9 +36,47 @@ export default function Home() {
   {/* About Section */}
   <section id="about" className="section flex-col text-center" style={{background: "var(--background)"}}>
           <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-[var(--accent)]">About Me</h2>
-          <p className="max-w-xl mx-auto text-gray-300 text-lg md:text-xl">
-            Hi, I'm Jan. I love crafting elegant solutions to complex problems and designing interfaces that feel effortless. My focus is on modern web technologies, clean code, and user-centric design.
+          <p className="max-w-2xl mx-auto text-gray-300 text-lg md:text-xl mb-8">
+            Hello! I'm a recent Computer Science graduate with a passion for building cross-platform applications. My journey in software development started during my university coursework and has expanded through personal projects and internships.<br /><br />
+            I enjoy solving complex problems and creating efficient, user-friendly applications. My diverse skill set allows me to work on various platforms – from mobile apps to desktop software and backend systems.
           </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto mt-4">
+            <div className="bg-[var(--gray)] border border-gray-700 rounded-xl p-6 text-left flex flex-col gap-2">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-[var(--accent)] text-2xl">&#60;/&#62;</span>
+                <span className="font-bold text-lg text-[var(--foreground)]">Programming</span>
+              </div>
+              <span className="text-gray-300">Python, C#, Java, JavaScript, React, HTML/CSS, Dart, SQL</span>
+            </div>
+            <div className="bg-[var(--gray)] border border-gray-700 rounded-xl p-6 text-left flex flex-col gap-2">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-[var(--accent)] text-2xl">&#128230;</span>
+                <span className="font-bold text-lg text-[var(--foreground)]">Databases</span>
+              </div>
+              <span className="text-gray-300">Firebase, MySQL, SQL/NoSQL</span>
+            </div>
+            <div className="bg-[var(--gray)] border border-gray-700 rounded-xl p-6 text-left flex flex-col gap-2">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-[var(--accent)] text-2xl">&#128187;</span>
+                <span className="font-bold text-lg text-[var(--foreground)]">Frameworks</span>
+              </div>
+              <span className="text-gray-300">React.js, Flutter, Unity, Electron, PyQT</span>
+            </div>
+            <div className="bg-[var(--gray)] border border-gray-700 rounded-xl p-6 text-left flex flex-col gap-2">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-[var(--accent)] text-2xl">&#128295;</span>
+                <span className="font-bold text-lg text-[var(--foreground)]">Dev Tools</span>
+              </div>
+              <span className="text-gray-300">Git, GitHub, GitLab, VSC, Vercel, Figma, Google AI Studio</span>
+            </div>
+            <div className="bg-[var(--gray)] border border-gray-700 rounded-xl p-6 text-left flex flex-col gap-2">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-[var(--accent)] text-2xl">&#128187;</span>
+                <span className="font-bold text-lg text-[var(--foreground)]">Specialties</span>
+              </div>
+              <span className="text-gray-300">Software Development, Web Development, Mobile Apps, AI Integration</span>
+            </div>
+          </div>
         </section>
 
   {/* Projects Section */}
