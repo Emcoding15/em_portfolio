@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -19,7 +21,15 @@ const projects = [
 ];
 
 const ProjectsSection: React.FC = () => (
-  <section id="projects" className="section flex-col text-center" style={{ background: "var(--background)" }}>
+  <motion.section
+    id="projects"
+    className="section flex-col text-center"
+    style={{ background: "var(--background)" }}
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+  viewport={{ once: false, amount: 0.3 }}
+    transition={{ duration: 1 }}
+  >
     <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-[var(--accent)]">Projects</h2>
     <div className="flex flex-wrap justify-center gap-8">
       {projects.map((project, idx) => (
@@ -35,7 +45,7 @@ const ProjectsSection: React.FC = () => (
         </a>
       ))}
     </div>
-  </section>
+  </motion.section>
 );
 
 export default ProjectsSection;

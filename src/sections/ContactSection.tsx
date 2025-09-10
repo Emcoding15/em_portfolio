@@ -1,7 +1,17 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 const ContactSection: React.FC = () => (
-  <section id="contact" className="section flex-col text-center" style={{ background: "var(--background)" }}>
+  <motion.section
+    id="contact"
+    className="section flex-col text-center"
+    style={{ background: "var(--background)" }}
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+  viewport={{ once: false, amount: 0.3 }}
+    transition={{ duration: 1 }}
+  >
     <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-[var(--accent)]">Contact</h2>
     <form className="max-w-md mx-auto flex flex-col gap-4 text-left">
       <input type="text" name="name" placeholder="Your Name" className="border border-gray-700 bg-[var(--background)] text-[var(--foreground)] rounded px-4 py-2 focus:outline-none focus:border-[var(--accent)]" required />
@@ -21,7 +31,7 @@ const ContactSection: React.FC = () => (
         </svg>
       </a>
     </div>
-  </section>
+  </motion.section>
 );
 
 export default ContactSection;
