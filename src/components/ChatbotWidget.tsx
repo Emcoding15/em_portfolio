@@ -11,13 +11,18 @@ const ChatbotWidget: React.FC = () => {
     setMessages([...messages, { role: 'user', text: input }]);
     setLoading(true);
     try {
-      const res = await fetch('/api/chatbot', {
+      // Call semantic search API and display LLM answer
+      const res = await fetch('/api/semantic-search', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: input }),
+        body: JSON.stringify({ query: input }),
       });
       const data = await res.json();
-      setMessages((msgs) => [...msgs, { role: 'bot', text: data.answer }]);
+      const llmAnswer = data.llmAnswer || 'No answer generated.';
+      setMessages((msgs) => [
+        ...msgs,
+        { role: 'bot', text: llmAnswer }
+      ]);
     } catch (err) {
       setMessages((msgs) => [...msgs, { role: 'bot', text: 'Error: Could not get response.' }]);
     }
@@ -41,7 +46,7 @@ const ChatbotWidget: React.FC = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm">
           <div className="w-150 h-150 bg-white shadow-2xl rounded-xl border border-gray-200 flex flex-col animate-fade-in relative">
             <div className="p-4 border-b border-gray-100 font-bold text-lg text-gray-800 rounded-t-xl bg-gray-50 flex justify-between items-center">
-              <span>Chatbot</span>
+              <span>Em's Bot</span>
               <button
                 className="text-gray-400 hover:text-gray-700 text-xl font-bold ml-2"
                 onClick={() => setOpen(false)}
