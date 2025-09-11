@@ -27,6 +27,20 @@ This is a personal portfolio website built with Next.js, TypeScript, Tailwind CS
 - [Tailwind CSS](https://tailwindcss.com/)
 - [ESLint](https://eslint.org/)
 
+### RAG Chatbot Data Ingestion with n8n
+
+We have implemented a data ingestion pipeline using n8n to power a Retrieval-Augmented Generation (RAG) chatbot. This workflow processes PDF documents, generates embeddings, and stores them in a Supabase vector database.
+
+The pipeline consists of the following steps:
+
+1.  **File Download**: The workflow begins by downloading a PDF file from a specified source (e.g., Google Drive).
+2.  **Text Extraction**: The binary data from the PDF is loaded, and the text content is extracted.
+3.  **Text Splitting**: The extracted text is split into smaller, overlapping chunks using the Recursive Character Text Splitter. This is configured with a chunk size of 500 characters and an overlap of 100 characters to maintain context between chunks.
+4.  **Embedding Generation**: Each text chunk is converted into a vector embedding using the `sentence-transformers/all-MiniLM-L6-v2` model from Hugging Face.
+5.  **Vector Storage**: The text chunks and their corresponding embeddings are inserted into a Supabase table named `portfolios_vdb`, which is powered by the `pgvector` extension.
+
+This automated workflow allows for efficient and scalable processing of documents to be used as a knowledge base for the RAG chatbot.
+
 ---
 Replace placeholder content with your own information and projects.
 
