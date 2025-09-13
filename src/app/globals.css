@@ -1,4 +1,3 @@
-
 @import "tailwindcss";
 
 
@@ -16,11 +15,14 @@ body {
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   min-height: 100vh;
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+html {
+  scroll-snap-type: y mandatory;
 }
 
 main {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
   height: 100vh;
 }
 
@@ -34,6 +36,18 @@ main {
   position: relative;
   opacity: 0;
   animation: fadeIn 1s forwards;
+}
+
+.site-header {
+  height: 64px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  position: fixed;
+  z-index: 50;
 }
 
 @keyframes fadeIn {
