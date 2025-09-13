@@ -7,10 +7,10 @@ const ContactSection: React.FC = () => (
     id="contact"
     className="section flex-col text-center"
     style={{ background: "var(--background)" }}
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    viewport={{ once: false, amount: 0.3 }}
-    transition={{ duration: 2, ease: "easeOut" }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: false, amount: 0.1 }}
+      transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
   >
     <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-[var(--accent)]">Contact</h2>
     <form className="max-w-md mx-auto flex flex-col gap-4 text-left">

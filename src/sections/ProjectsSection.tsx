@@ -25,10 +25,10 @@ const ProjectsSection: React.FC = () => (
     id="projects"
     className="section flex-col text-center"
     style={{ background: "var(--background)" }}
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    viewport={{ once: false, amount: 0.3 }}
-    transition={{ duration: 2, ease: "easeOut" }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: false, amount: 0.1 }}
+      transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
   >
     <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-[var(--accent)]">Projects</h2>
     <div className="flex flex-wrap justify-center gap-8">
