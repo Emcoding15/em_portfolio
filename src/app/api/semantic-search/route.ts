@@ -91,7 +91,7 @@ export async function POST(request: Request) {
 
     // Concatenate context from top results
     const context = results?.map((r: any) => r.content).join('\n\n') || '';
-    const prompt = `Context:\n${context}\n\nUser: ${query}\n\nAnswer:`;
+  const prompt = `You are Em's friendly portfolio assistant. Use the context below to answer the user's question. If you don't know, say so. Be concise and helpful.\n\nContext:\n${context}\n\nUser: ${query}\n\nAnswer:`;
 
     // Log request details for debugging
     console.log('[DEBUG] OpenRouter request:', {
@@ -115,8 +115,8 @@ export async function POST(request: Request) {
             { role: 'system', content: 'You are a helpful assistant for portfolio Q&A.' },
             { role: 'user', content: prompt }
           ],
-          max_tokens: 512,
-          temperature: 0.2
+          max_tokens: 800,
+          temperature: 0.5
         }),
       });
     } catch (err) {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MarkdownMessage from './MarkdownMessage';
 
 const ChatbotWidget: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -58,13 +59,16 @@ const ChatbotWidget: React.FC = () => {
             <div className="flex-1 p-2 overflow-y-auto space-y-2">
               {messages.map((msg, i) => (
                 <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <span className={
-                    msg.role === 'user'
-                      ? 'bg-blue-500 text-white px-3 py-2 rounded-2xl max-w-xs break-words shadow'
-                      : 'bg-gray-200 text-gray-800 px-3 py-2 rounded-2xl max-w-xs break-words shadow'
-                  }>
-                    {msg.text}
-                  </span>
+                  {msg.role === 'user' ? (
+                    <span className="bg-blue-500 text-white px-3 py-2 rounded-2xl max-w-xs break-words shadow">
+                      {msg.text}
+                    </span>
+                  ) : (
+                    <MarkdownMessage
+                      content={msg.text}
+                      className="bg-gray-200 text-gray-800 px-3 py-2 rounded-2xl max-w-xs break-words shadow"
+                    />
+                  )}
                 </div>
               ))}
               {loading && <div className="text-gray-400 text-sm">Bot is typing...</div>}
