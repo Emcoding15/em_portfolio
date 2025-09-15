@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import MarkdownMessage from './MarkdownMessage';
 
 const ChatbotWidget: React.FC = () => {
@@ -34,14 +35,24 @@ const ChatbotWidget: React.FC = () => {
   return (
     <>
       {/* Floating button */}
-      <button
+      <motion.button
         className="fixed bottom-8 right-8 z-50 bg-[var(--accent)] hover:bg-blue-600 text-white rounded-full shadow-lg w-16 h-16 flex items-center justify-center text-3xl font-bold transition"
         onClick={() => setOpen(true)}
         aria-label="Open chatbot"
+        whileHover={{}}
       >
         <span className="sr-only">Open chatbot</span>
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#fff"/><text x="16" y="21" textAnchor="middle" fontSize="18" fill="#06f">🤖</text></svg>
-      </button>
+        <motion.img
+          src="/chatbot_icon.png"
+          alt="Chatbot Icon"
+          className="w-10 h-10"
+          whileHover={{
+            x: [0, -8, 8, -6, 6, -4, 4, 0],
+            rotate: [0, -8, 8, -6, 6, -4, 4, 0],
+            transition: { duration: 0.5 }
+          }}
+        />
+      </motion.button>
 
       {/* Modal */}
       {open && (
@@ -49,8 +60,8 @@ const ChatbotWidget: React.FC = () => {
           <div className="w-full max-w-2xl h-[40rem] bg-[#18181b] shadow-2xl rounded-2xl border border-gray-800 flex flex-col animate-fade-in relative">
             {/* Header */}
             <div className="p-4 border-b border-gray-800 flex items-center gap-3 rounded-t-2xl bg-[#23232a]">
-              <div className="w-10 h-10 rounded-full bg-[var(--accent)] flex items-center justify-center text-2xl shadow">
-                🤖
+              <div className="w-10 h-10 flex items-center justify-center">
+                <img src="/chatbot_icon.png" alt="Chatbot Icon" className="w-10 h-10 object-contain" />
               </div>
               <span className="font-bold text-lg text-white">Em's Bot</span>
               <button
