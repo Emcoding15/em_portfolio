@@ -33,7 +33,7 @@ export default function Header() {
   return (
     <>
       <motion.header 
-        className="sticky top-0 z-50 bg-black/90 backdrop-blur-xl border-b border-[var(--accent)]/20 shadow-lg shadow-black/20"
+        className="sticky top-0 z-50 bg-black/90 backdrop-blur-xl shadow-md shadow-black/40"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
