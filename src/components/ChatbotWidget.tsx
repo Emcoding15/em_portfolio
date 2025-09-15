@@ -4,6 +4,15 @@ import MarkdownMessage from './MarkdownMessage';
 
 const ChatbotWidget: React.FC = () => {
   const [open, setOpen] = useState(false);
+  // Close modal on ESC key
+  React.useEffect(() => {
+    if (!open) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [open]);
   const [messages, setMessages] = useState<{ role: 'user' | 'bot'; text: string }[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -56,8 +65,14 @@ const ChatbotWidget: React.FC = () => {
 
       {/* Modal */}
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm">
-          <div className="w-full max-w-2xl h-[40rem] bg-[#18181b] shadow-2xl rounded-2xl border border-gray-800 flex flex-col animate-fade-in relative">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm"
+          onClick={() => setOpen(false)}
+        >
+          <div
+            className="w-full max-w-2xl h-[40rem] bg-[#18181b] shadow-2xl rounded-2xl border border-gray-800 flex flex-col animate-fade-in relative"
+            onClick={e => e.stopPropagation()}
+          >
             {/* Header */}
             <div className="p-4 border-b border-gray-800 flex items-center gap-3 rounded-t-2xl bg-[#23232a]">
               <div className="w-10 h-10 flex items-center justify-center">
