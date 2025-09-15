@@ -11,38 +11,15 @@ const HeroSection: React.FC = () => (
     viewport={{ once: false, amount: 0.0 }}
     transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
   >
-    {/* Subtle background accent */}
-    <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/5 via-transparent to-[var(--accent)]/5 pointer-events-none" />
-    
     <div className="relative z-10 max-w-4xl mx-auto">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, ease: [0.4, 0, 0.2, 1] }}
       >
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
-          <span className="text-[var(--foreground)]">John Michael</span>
-          <br />
-          <span className="bg-gradient-to-r from-[var(--accent)] to-blue-400 bg-clip-text text-transparent">
-            Guerra
-          </span>
-        </h1>
-        
-        <motion.div
-          className="h-1 w-24 bg-gradient-to-r from-[var(--accent)] to-blue-400 mx-auto mb-6 rounded-full"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1.2, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
-        />
-        
-        <h2 className="text-2xl md:text-3xl font-medium mb-4 text-[var(--accent)] uppercase tracking-wide">
-          Software Engineer
-        </h2>
-        
-        <p className="text-xl md:text-2xl text-gray-300 mb-8 font-light leading-relaxed">
-          Building clean, modern web experiences
-        </p>
-        
+          <h1 className="font-extrabold text-[4rem] md:text-[6rem] text-[var(--foreground)] leading-none mb-2" style={{letterSpacing: '-2px', fontFamily: 'Poppins, sans-serif'}}>John Guerra</h1>
+          <h2 className="font-bold text-[2rem] md:text-[2.5rem] text-gray-400 mb-6" style={{letterSpacing: '-1px', fontFamily: 'Poppins, sans-serif'}}>Software Developer</h2>
+          <p className="text-lg md:text-xl text-gray-400 mb-8" style={{fontFamily: 'Poppins, sans-serif'}}>Building clean, modern web experiences</p>
         <motion.div
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           initial={{ opacity: 0, y: 20 }}
@@ -57,7 +34,6 @@ const HeroSection: React.FC = () => (
           >
             View My Work
           </motion.a>
-          
           <motion.a
             href="#contact"
             whileHover={{ scale: 1.05 }}

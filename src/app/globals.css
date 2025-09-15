@@ -10,11 +10,21 @@
   --white: #23232a;
 }
 body {
-  background: linear-gradient(120deg, #0a0a12 0%, #16161a 100%);
+  background: #07070d;
+  position: relative;
   background-attachment: fixed;
   color: var(--foreground);
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(0,255,208,0.10) 0%, rgba(7,7,13,0.95) 70%);
 }
 
 /* Smooth scrolling with easing */
