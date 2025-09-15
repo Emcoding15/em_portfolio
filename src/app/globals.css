@@ -15,11 +15,10 @@ body {
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   min-height: 100vh;
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
 }
 
 html {
-  scroll-snap-type: y mandatory;
+  /* scroll-snap-type removed for smooth scrolling */
 }
 
 main {
@@ -31,7 +30,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  scroll-snap-align: start;
+  /* scroll-snap-align removed for smooth scrolling */
   padding: 0 2rem;
   position: relative;
   opacity: 0;
