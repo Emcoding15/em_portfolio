@@ -5,45 +5,113 @@ import { motion } from "framer-motion";
 const projects = [
   {
     title: "Minimal Blog Platform",
-    description: "A clean, markdown-based blog with Next.js and Tailwind.",
+    description: "A clean, markdown-based blog with Next.js and Tailwind CSS. Features dark mode, responsive design, and optimized performance.",
+    tech: ["Next.js", "Tailwind", "MDX"],
     link: "#",
+    status: "Live"
   },
   {
     title: "Portfolio Website",
-    description: "Personal portfolio with scroll-snap and smooth animations.",
+    description: "Personal portfolio with smooth animations and modern design. Built with React and Framer Motion for engaging user experience.",
+    tech: ["React", "Framer Motion", "TypeScript"],
     link: "#",
+    status: "Active"
   },
   {
     title: "Open Source UI Kit",
-    description: "Reusable React components for modern web apps.",
+    description: "Reusable React components library for modern web applications. Includes comprehensive documentation and TypeScript support.",
+    tech: ["React", "Storybook", "TypeScript"],
     link: "#",
+    status: "Development"
   },
 ];
 
 const ProjectsSection: React.FC = () => (
   <motion.section
     id="projects"
-    className="section flex-col text-center"
-    style={{ background: "var(--background)" }}
+    className="section flex-col relative"
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: false, amount: 0.0}}
     transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
   >
-    <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-[var(--accent)]">Projects</h2>
-    <div className="flex flex-wrap justify-center gap-8">
-      {projects.map((project, idx) => (
-        <a
-          key={idx}
-          href={project.link}
-          className="group bg-[var(--gray)] border border-gray-700 rounded-xl p-6 w-72 shadow-sm transition-transform hover:-translate-y-2 hover:shadow-lg hover:border-[var(--accent)]"
-          style={{ textDecoration: "none" }}
-        >
-          <h3 className="text-lg font-bold mb-2 group-hover:text-[var(--accent)] transition-colors text-[var(--foreground)]">{project.title}</h3>
-          <p className="text-gray-400 mb-2">{project.description}</p>
-          <span className="text-[var(--accent)] font-medium group-hover:underline">View Project →</span>
-        </a>
-      ))}
+    <div className="max-w-6xl mx-auto px-4">
+      <motion.div
+        className="text-center mb-16"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+      >
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[var(--foreground)]">
+          Featured <span className="text-[var(--accent)]">Projects</span>
+        </h2>
+        <div className="h-1 w-24 bg-gradient-to-r from-[var(--accent)] to-blue-400 mx-auto mb-8 rounded-full" />
+        <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          A showcase of my recent work, from web applications to open-source contributions
+        </p>
+      </motion.div>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project, idx) => (
+          <motion.div
+            key={idx}
+            className="group relative bg-gradient-to-br from-[var(--gray)] to-[#0f0f0f] rounded-2xl p-8 border border-[var(--accent)]/20 hover:border-[var(--accent)]/60 transition-all duration-500 overflow-hidden"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: idx * 0.2, ease: [0.4, 0, 0.2, 1] }}
+            whileHover={{ y: -10, boxShadow: "0 25px 50px rgba(0, 255, 208, 0.15)" }}
+          >
+            {/* Status Badge */}
+            <div className="absolute top-4 right-4">
+              <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                project.status === 'Live' ? 'bg-green-500/20 text-green-400' :
+                project.status === 'Active' ? 'bg-[var(--accent)]/20 text-[var(--accent)]' :
+                'bg-yellow-500/20 text-yellow-400'
+              }`}>
+                {project.status}
+              </span>
+            </div>
+
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors duration-300">
+                {project.title}
+              </h3>
+              
+              <p className="text-gray-300 leading-relaxed">
+                {project.description}
+              </p>
+              
+              <div className="flex flex-wrap gap-2">
+                {project.tech.map((tech, techIdx) => (
+                  <span 
+                    key={techIdx}
+                    className="px-3 py-1 bg-[var(--accent)]/10 text-[var(--accent)] rounded-full text-sm font-medium border border-[var(--accent)]/20"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              
+              <motion.a
+                href={project.link}
+                className="inline-flex items-center gap-2 text-[var(--accent)] font-bold hover:text-blue-400 transition-colors duration-300 group-hover:gap-3"
+                whileHover={{ x: 5 }}
+                style={{ textDecoration: "none" }}
+              >
+                View Project 
+                <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </motion.a>
+            </div>
+
+            {/* Hover gradient effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent)]/5 via-transparent to-blue-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+          </motion.div>
+        ))}
+      </div>
     </div>
   </motion.section>
 );
