@@ -82,12 +82,12 @@ const AboutSection: React.FC = () => (
           {skillGroups.map((group, index) => (
             <motion.div
               key={group.category}
-              className="bg-gradient-to-br from-[var(--gray)] to-[#0f0f0f] rounded-2xl p-6 border border-[var(--accent)]/20 hover:border-[var(--accent)]/40 transition-all duration-300"
+              className="bg-gradient-to-br from-[var(--gray)] to-[#0f0f0f] rounded-2xl p-6 border border-[var(--accent)]/20 hover:border-[var(--accent)]/40 transition-colors duration-150"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, delay: 0.8 + index * 0.1, ease: [0.4, 0, 0.2, 1] }}
-              whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0, 255, 208, 0.1)" }}
+              // Removed lift and shadow on hover to match Project section
             >
               <h4 className="text-lg font-semibold text-[var(--accent)] mb-4 text-center">{group.category}</h4>
               <div className="flex flex-wrap gap-2 justify-center">

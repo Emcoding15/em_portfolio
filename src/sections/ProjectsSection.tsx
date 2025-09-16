@@ -56,7 +56,7 @@ const ProjectsSection: React.FC = () => (
         {projects.map((project, idx) => (
           <motion.div
             key={idx}
-            className="group relative bg-gradient-to-br from-[var(--gray)] to-[#0f0f0f] rounded-2xl p-8 border border-[var(--accent)]/20 hover:border-[var(--accent)]/60 transition-all duration-500 overflow-hidden"
+            className="group relative bg-gradient-to-br from-[var(--gray)] to-[#0f0f0f] rounded-2xl p-8 border border-[var(--accent)]/20 hover:border-[var(--accent)]/60 transition-all duration-10 overflow-hidden"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
