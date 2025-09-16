@@ -50,37 +50,27 @@ export default function Header() {
           >
             <Link 
               href="/" 
-              className="text-2xl font-bold bg-gradient-to-r from-[var(--accent)] to-blue-400 bg-clip-text text-transparent relative"
+              className="text-2xl relative"
             >
               <motion.span
-                animate={{ 
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-                }}
-                transition={{ 
-                  duration: 3, 
-                  repeat: Infinity, 
-                  ease: "linear" 
-                }}
-                className="bg-gradient-to-r from-[var(--accent)] via-blue-400 via-purple-400 to-[var(--accent)] bg-300% bg-clip-text text-transparent"
+                className=""
+                    style={{
+                      fontFamily: 'Poppins, sans-serif',
+                      fontSize: 22,
+                      fontWeight: 800,
+                      letterSpacing: 1,
+                      textShadow: '0 2px 4px #0000004d',
+                      color: 'inherit',
+                      display: 'inline-block',
+                    }}
               >
-                JMG
+                  <span>
+                    <span style={{ color: 'var(--accent)' }}>EM</span>
+                    <span style={{ color: 'var(--accent)', opacity: 0.5 }}>CODING</span>
+                  </span>
               </motion.span>
-              {/* Pulse effect */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-[var(--accent)]/20 to-blue-400/20 rounded-lg blur-sm"
-                animate={{ 
-                  opacity: [0, 0.5, 0],
-                  scale: [1, 1.2, 1]
-                }}
-                transition={{ 
-                  duration: 2, 
-                  repeat: Infinity, 
-                  ease: "easeInOut" 
-                }}
-              />
             </Link>
           </motion.div>
-          
           {/* Navigation Links with Active Indicator */}
           <nav className="hidden md:flex space-x-8">
             {[
