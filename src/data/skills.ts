@@ -4,6 +4,7 @@ export const skillGroups = [
   {
     category: "Programming Languages",
     skills: [
+  { label: "TypeScript", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg", description: "Typed superset of JavaScript for scalable apps." },
   { label: "Python", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg", description: "Versatile language for web, data, and AI." },
   { label: "JavaScript", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg", description: "Essential language for web development." },
   { label: "Java", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg", description: "Popular for enterprise and Android apps." },
@@ -14,7 +15,9 @@ export const skillGroups = [
   {
     category: "Frameworks & Libraries",
     skills: [
+  { label: "Next.js", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg", description: "React framework for production-grade web apps." },
   { label: "React", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg", description: "JavaScript library for building UIs." },
+  { label: "Tailwind CSS", imgUrl: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/tailwind.svg", description: "Utility-first CSS framework for rapid UI." },
   { label: "Flutter", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg", description: "Google's toolkit for mobile/web apps." },
   { label: "Electron", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/electron/electron-original.svg", description: "Framework for desktop apps with web tech." },
   { label: "PyQT", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/qt/qt-original.svg", description: "Python bindings for Qt GUI development." },
@@ -22,8 +25,9 @@ export const skillGroups = [
     ],
   },
   {
-    category: "Databases",
+    category: "Databases & Cloud",
     skills: [
+  { label: "Supabase", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg", description: "Open source Firebase alternative with vector search." },
   { label: "MySQL", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg", description: "Popular open-source relational database." },
   { label: "Firebase", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg", description: "Google's backend platform for apps." },
   { label: "SQL/NoSQL", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg", description: "Flexible database for modern apps." },
@@ -32,8 +36,11 @@ export const skillGroups = [
   {
     category: "Dev Tools",
     skills: [
+  { label: "ESLint", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/eslint/eslint-original.svg", description: "Find and fix problems in your JavaScript code." },
+  { label: "PostCSS", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postcss/postcss-original.svg", description: "Tool for transforming CSS with JavaScript." },
   { label: "Git", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg", description: "Version control for code collaboration." },
   { label: "GitHub", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg", description: "Code hosting and collaboration platform." },
+  { label: "Hugging Face", imgUrl: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/hugging-face.svg", description: "AI/ML models and embeddings." },
   { label: "GitLab", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg", description: "DevOps platform for code and CI/CD." },
   { label: "VS Code", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original-wordmark.svg", description: "Popular code editor by Microsoft." },
   { label: "Vercel", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg", description: "Platform for frontend deployment." },
@@ -44,10 +51,10 @@ export const skillGroups = [
   {
     category: "Specialties",
     skills: [
-  { label: "Software Development", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg", description: "Building robust software solutions." },
-  { label: "Web Development", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg", description: "Creating modern, responsive websites." },
-  { label: "Mobile Development", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg", description: "Developing apps for mobile platforms." },
-  { label: "AI Integration", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg", description: "Applying AI to enhance applications." },
+  { label: "Software Development", imgUrl: "", description: "Building robust software solutions." },
+  { label: "Web Development", imgUrl: "", description: "Creating modern, responsive websites." },
+  { label: "Mobile Development", imgUrl: "", description: "Developing apps for mobile platforms." },
+  { label: "AI Integration", imgUrl: "", description: "Applying AI to enhance applications." },
     ],
   },
 ];

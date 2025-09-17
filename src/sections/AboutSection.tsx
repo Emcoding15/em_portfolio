@@ -68,42 +68,42 @@ const AboutSection: React.FC = () => (
           </div>
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 1, delay: 0.6, ease: [0.4, 0, 0.2, 1] }}
-      >
-        <h3 className="text-3xl font-bold text-center mb-12 text-[var(--foreground)]">
-          My <span className="text-[var(--accent)]">Skills</span>
-        </h3>
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-          {skillGroups.map((group, index) => (
-            <motion.div
-              key={group.category}
-              className="bg-gradient-to-br from-[var(--gray)] to-[#0f0f0f] rounded-2xl p-6 border border-[var(--accent)]/20 hover:border-[var(--accent)]/40 transition-colors duration-150"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, delay: 0.8 + index * 0.1, ease: [0.4, 0, 0.2, 1] }}
-              // Removed lift and shadow on hover to match Project section
-            >
-              <h4 className="text-lg font-semibold text-[var(--accent)] mb-4 text-center">{group.category}</h4>
-              <div className="flex flex-wrap gap-2 justify-center">
-                {group.skills.map((skill) => (
-                  <SkillTag
-                    key={skill.label}
-                    imgUrl={skill.imgUrl}
-                    label={skill.label}
-                  />
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
     </div>
+
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 1, delay: 0.6, ease: [0.4, 0, 0.2, 1] }}
+    >
+      <h3 className="text-3xl font-bold text-center mb-12 text-[var(--foreground)]">
+        My <span className="text-[var(--accent)]">Skills</span>
+      </h3>
+      <div className="w-full px-0 sm:px-4 lg:px-8 grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+        {skillGroups.map((group, index) => (
+          <motion.div
+            key={group.category}
+            className="bg-gradient-to-br from-[var(--gray)] to-[#0f0f0f] rounded-2xl p-6 border border-[var(--accent)]/20 hover:border-[var(--accent)]/40 transition-colors duration-150"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.8 + index * 0.1, ease: [0.4, 0, 0.2, 1] }}
+            // Removed lift and shadow on hover to match Project section
+          >
+            <h4 className="text-lg font-semibold text-[var(--accent)] mb-4 text-center">{group.category}</h4>
+            <div className="flex flex-wrap gap-2 justify-center">
+              {group.skills.map((skill) => (
+                <SkillTag
+                  key={skill.label}
+                  imgUrl={skill.imgUrl}
+                  label={skill.label}
+                />
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
   </motion.section>
 );
 
