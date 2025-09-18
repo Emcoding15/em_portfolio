@@ -56,12 +56,11 @@ const ProjectsSection: React.FC = () => (
         {projects.map((project, idx) => (
           <motion.div
             key={idx}
-            className="group relative bg-gradient-to-br from-[var(--gray)] to-[#0f0f0f] rounded-2xl p-8 border border-[var(--accent)]/20 hover:border-[var(--accent)]/60 transition-all duration-10 overflow-hidden"
+            className="group relative bg-gradient-to-br from-[var(--gray)] to-[#0f0f0f] rounded-2xl p-8 border border-[var(--accent)]/20 hover:border-[var(--accent)]/60 overflow-hidden transform transition-transform duration-200 ease-out hover:-translate-y-2 hover:shadow-[0_25px_50px_rgba(0,255,208,0.15)]"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, delay: idx * 0.2, ease: [0.4, 0, 0.2, 1] }}
-            whileHover={{ y: -10, boxShadow: "0 25px 50px rgba(0, 255, 208, 0.15)" }}
+            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
           >
             {/* Status Badge */}
             <div className="absolute top-4 right-4">
@@ -75,7 +74,7 @@ const ProjectsSection: React.FC = () => (
             </div>
 
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors duration-300">
+              <h3 className="text-2xl font-bold text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors duration-200">
                 {project.title}
               </h3>
               
@@ -96,7 +95,7 @@ const ProjectsSection: React.FC = () => (
               
               <motion.a
                 href={project.link}
-                className="inline-flex items-center gap-2 text-[var(--accent)] font-bold hover:text-blue-400 transition-colors duration-300 group-hover:gap-3"
+                className="inline-flex items-center gap-2 text-[var(--accent)] font-bold hover:text-blue-400 transition-colors duration-200 group-hover:gap-3"
                 whileHover={{ x: 5 }}
                 style={{ textDecoration: "none" }}
               >
@@ -108,7 +107,7 @@ const ProjectsSection: React.FC = () => (
             </div>
 
             {/* Hover gradient effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent)]/5 via-transparent to-blue-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent)]/5 via-transparent to-blue-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
           </motion.div>
         ))}
       </div>
