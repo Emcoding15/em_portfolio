@@ -4,25 +4,25 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "AI Diary",
+    title: "AI Diary(AID)",
   description: "An AI-powered, voice-first journal app that transforms your spoken thoughts into organized, searchable diary entries. Features multi-language transcription, AI-powered summarization and insights, modern Material 3 UI, calendar view, and secure cloud sync.",
     tech: ["Flutter", "Dart", "Firebase", "Google Gemini AI", "FFmpeg", "Material 3"],
   link: "/projects/ai-diary",
-    status: "Live"
+    status: "Active"
   },
   {
     title: "Portfolio Website",
     description: "A modern, responsive portfolio built with Next.js, TypeScript, and Tailwind CSS. Features a homepage introduction, about section, project showcase with details pages, contact form, starfield background, and a RAG chatbot powered by n8n, Supabase, and Hugging Face embeddings.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Supabase", "n8n", "Hugging Face", "ESLint"],
   link: "/projects/portfolio-website",
-    status: "Active"
+    status: "Live"
   },
   {
-    title: "Open Source UI Kit",
-    description: "Reusable React components library for modern web applications. Includes comprehensive documentation and TypeScript support.",
-    tech: ["React", "Storybook", "TypeScript"],
-    link: "#",
-    status: "Development"
+    title: "AI Captioner",
+  description: "A Next.js web app that uses Google Gemini AI to generate captions for uploaded images. Features a modern, responsive UI, secure API key storage, and real-time AI captioning for accessibility and productivity.",
+  tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Google Gemini AI"],
+  link: "/projects/ai-captioner",
+    status: "Active"
   },
 ];
 
