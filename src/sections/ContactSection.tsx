@@ -1,16 +1,46 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-const ContactSection: React.FC = () => (
-  <motion.section
-    id="contact"
-    className="section flex-col relative"
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: false, amount: 0.0 }}
-    transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
-  >
+const ContactSection: React.FC = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState<string|null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setResult(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setResult("Message sent successfully!");
+        setName(""); setEmail(""); setMessage("");
+      } else {
+        setResult(data.message || "Failed to send message.");
+      }
+    } catch (err) {
+      setResult("Failed to send message. Please try again later.");
+    }
+    setLoading(false);
+  };
+
+  return (
+    <motion.section
+      id="contact"
+      className="section flex-col relative"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.0 }}
+      transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
+    >
     <div className="max-w-4xl mx-auto px-4">
       <motion.div
         className="text-center mb-16"
@@ -97,9 +127,9 @@ const ContactSection: React.FC = () => (
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
+          onSubmit={handleSubmit}
         >
           <h3 className="text-2xl font-bold text-[var(--accent)] mb-6">Send Message</h3>
-          
           <div className="space-y-4">
             <motion.input
               type="text"
@@ -107,6 +137,8 @@ const ContactSection: React.FC = () => (
               placeholder="Your Name"
               className="w-full border border-[var(--accent)]/20 bg-[#0f0f0f] text-[var(--foreground)] rounded-xl px-6 py-4 focus:outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 transition-all duration-300"
               required
+              value={name}
+              onChange={e => setName(e.target.value)}
               whileFocus={{ scale: 1.02 }}
             />
             <motion.input
@@ -115,6 +147,8 @@ const ContactSection: React.FC = () => (
               placeholder="Your Email"
               className="w-full border border-[var(--accent)]/20 bg-[#0f0f0f] text-[var(--foreground)] rounded-xl px-6 py-4 focus:outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 transition-all duration-300"
               required
+              value={email}
+              onChange={e => setEmail(e.target.value)}
               whileFocus={{ scale: 1.02 }}
             />
             <motion.textarea
@@ -123,22 +157,28 @@ const ContactSection: React.FC = () => (
               rows={4}
               className="w-full border border-[var(--accent)]/20 bg-[#0f0f0f] text-[var(--foreground)] rounded-xl px-6 py-4 focus:outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 transition-all duration-300 resize-none"
               required
+              value={message}
+              onChange={e => setMessage(e.target.value)}
               whileFocus={{ scale: 1.02 }}
             />
           </div>
-          
           <motion.button
             type="submit"
             className="w-full bg-gradient-to-r from-[var(--accent)] to-blue-400 text-black font-bold rounded-xl px-8 py-4 text-lg transition-all duration-300 hover:shadow-2xl"
             whileHover={{ scale: 1.02, boxShadow: "0 10px 40px rgba(0, 255, 208, 0.3)" }}
             whileTap={{ scale: 0.98 }}
+            disabled={loading}
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </motion.button>
+          {result && (
+            <div className={`mt-4 text-center font-semibold ${result.includes("success") ? "text-green-400" : "text-red-400"}`}>{result}</div>
+          )}
         </motion.form>
       </div>
     </div>
   </motion.section>
-);
+  );
+};
 
 export default ContactSection;
