@@ -78,7 +78,7 @@ const ChatbotWidget: React.FC = () => {
               <div className="w-10 h-10 flex items-center justify-center">
                 <img src="/chatbot_icon.png" alt="Chatbot Icon" className="w-10 h-10 object-contain" />
               </div>
-              <span className="font-bold text-lg text-white">Em's Bot</span>
+              <span className="font-bold text-lg text-white">Em&apos;s Bot</span>
               <button
                 className="ml-auto text-gray-400 hover:text-white text-2xl font-bold"
                 onClick={() => setOpen(false)}

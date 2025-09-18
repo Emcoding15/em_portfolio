@@ -37,7 +37,7 @@ const AboutSection: React.FC = () => (
           transition={{ duration: 1, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
         >
           <p className="text-xl text-gray-300 leading-relaxed">
-            Hello! I'm a recent Computer Science graduate with a passion for building cross-platform applications. My journey in software development started during my university coursework and has expanded through personal projects and internships.
+            Hello! I&apos;m a recent Computer Science graduate with a passion for building cross-platform applications. My journey in software development started during my university coursework and has expanded through personal projects and internships.
           </p>
           <p className="text-xl text-gray-300 leading-relaxed">
             I enjoy solving complex problems and creating efficient, user-friendly applications. My diverse skill set allows me to work on various platforms – from mobile apps to desktop software and backend systems.

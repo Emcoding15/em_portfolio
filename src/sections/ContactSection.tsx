@@ -20,11 +20,11 @@ const ContactSection: React.FC = () => (
         transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[var(--foreground)]">
-          Let's <span className="text-[var(--accent)]">Connect</span>
+          Let&apos;s <span className="text-[var(--accent)]">Connect</span>
         </h2>
         <div className="h-1 w-24 bg-gradient-to-r from-[var(--accent)] to-blue-400 mx-auto mb-8 rounded-full" />
         <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-          Ready to bring your ideas to life? Let's discuss your next project.
+          Ready to bring your ideas to life? Let&apos;s discuss your next project.
         </p>
       </motion.div>
 

@@ -40,7 +40,7 @@ const HeroSection: React.FC = () => (
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 border-2 border-[var(--accent)] text-[var(--accent)] font-bold rounded-full text-lg transition-all duration-300 hover:bg-[var(--accent)] hover:text-black"
           >
-            Let's Connect
+            Let&apos;s Connect
           </motion.a>
         </motion.div>
       </motion.div>

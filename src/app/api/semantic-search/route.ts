@@ -46,7 +46,7 @@ export async function POST(request: Request) {
     console.log('Raw embedding response:', JSON.stringify(embeddingData).substring(0, 200));
     
     // The API returns a direct array of numbers
-    let embedding = embeddingData;
+    const embedding = embeddingData;
     
     console.log('Processed embedding, length:', embedding?.length);
 
@@ -90,7 +90,7 @@ export async function POST(request: Request) {
     }
 
     // Concatenate context from top results
-    const context = results?.map((r: any) => r.content).join('\n\n') || '';
+    const context = results?.map((r: { content: string }) => r.content).join('\n\n') || '';
   const prompt = `You are Em's friendly portfolio assistant. Use the context below to answer the user's question. If you don't know, say so. Be concise and helpful.\n\nContext:\n${context}\n\nUser: ${query}\n\nAnswer:`;
 
     // Log request details for debugging
