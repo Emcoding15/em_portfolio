@@ -134,10 +134,16 @@ export default function Header() {
           </motion.button>
         </div>
         
-        {/* Subtle bottom border (static) */}
-        <div
+        {/* Animated glowing pulse border */}
+        <motion.div
           className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent"
-          style={{ opacity: 0.5, transform: 'scaleX(0.9)' }}
+          style={{ transform: 'scaleX(0.9)' }}
+          animate={{ opacity: [0.3, 1, 0.3], filter: [
+            'brightness(1)',
+            'brightness(2)',
+            'brightness(1)'
+          ] }}
+          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
         />
       </header>
     </>
