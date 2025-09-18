@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "Minimal Blog Platform",
-    description: "A clean, markdown-based blog with Next.js and Tailwind CSS. Features dark mode, responsive design, and optimized performance.",
-    tech: ["Next.js", "Tailwind", "MDX"],
-    link: "#",
+    title: "AI Diary",
+  description: "An AI-powered, voice-first journal app that transforms your spoken thoughts into organized, searchable diary entries. Features multi-language transcription, AI-powered summarization and insights, modern Material 3 UI, calendar view, and secure cloud sync.",
+    tech: ["Flutter", "Dart", "Firebase", "Google Gemini AI", "FFmpeg", "Material 3"],
+  link: "/projects/ai-diary",
     status: "Live"
   },
   {
