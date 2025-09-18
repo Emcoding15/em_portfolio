@@ -12,9 +12,9 @@ const projects = [
   },
   {
     title: "Portfolio Website",
-    description: "Personal portfolio with smooth animations and modern design. Built with React and Framer Motion for engaging user experience.",
-    tech: ["React", "Framer Motion", "TypeScript"],
-    link: "#",
+    description: "A modern, responsive portfolio built with Next.js, TypeScript, and Tailwind CSS. Features a homepage introduction, about section, project showcase with details pages, contact form, starfield background, and a RAG chatbot powered by n8n, Supabase, and Hugging Face embeddings.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Supabase", "n8n", "Hugging Face", "ESLint"],
+  link: "/projects/portfolio-website",
     status: "Active"
   },
   {
