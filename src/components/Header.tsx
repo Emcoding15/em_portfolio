@@ -32,45 +32,34 @@ export default function Header() {
 
   return (
     <>
-      <motion.header 
+      <header 
         className="sticky top-0 z-50 bg-black/90 backdrop-blur-xl shadow-md shadow-black/40"
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-          {/* Logo/Brand with Animation */}
-          <motion.div
-            whileHover={{ 
-              scale: 1.05,
-              rotate: [0, -5, 5, 0],
-              transition: { duration: 0.6 }
-            }}
-            whileTap={{ scale: 0.95 }}
-          >
+          {/* Logo/Brand Static */}
+          <div>
             <Link 
               href="/" 
               className="text-2xl relative"
             >
-              <motion.span
-                className=""
-                    style={{
-                      fontFamily: 'Poppins, sans-serif',
-                      fontSize: 22,
-                      fontWeight: 800,
-                      letterSpacing: 1,
-                      textShadow: '0 2px 4px #0000004d',
-                      color: 'inherit',
-                      display: 'inline-block',
-                    }}
+              <span
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
+                  fontSize: 22,
+                  fontWeight: 800,
+                  letterSpacing: 1,
+                  textShadow: '0 2px 4px #0000004d',
+                  color: 'inherit',
+                  display: 'inline-block',
+                }}
               >
-                  <span>
-                    <span style={{ color: 'var(--accent)' }}>EM</span>
-                    <span style={{ color: 'var(--accent)', opacity: 0.5 }}>CODING</span>
-                  </span>
-              </motion.span>
+                <span>
+                  <span style={{ color: 'var(--accent)' }}>EM</span>
+                  <span style={{ color: 'var(--accent)', opacity: 0.5 }}>CODING</span>
+                </span>
+              </span>
             </Link>
-          </motion.div>
+          </div>
           {/* Navigation Links with Active Indicator */}
           <nav className="hidden md:flex space-x-8">
             {[
@@ -145,20 +134,12 @@ export default function Header() {
           </motion.button>
         </div>
         
-        {/* Subtle bottom border animation */}
-        <motion.div
+        {/* Subtle bottom border (static) */}
+        <div
           className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent"
-          animate={{ 
-            opacity: [0.3, 0.8, 0.3],
-            scaleX: [0.8, 1, 0.8]
-          }}
-          transition={{ 
-            duration: 4, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
+          style={{ opacity: 0.5, transform: 'scaleX(0.9)' }}
         />
-      </motion.header>
+      </header>
     </>
   );
 }
