@@ -1,9 +1,11 @@
+
 import React from "react";
+import Link from "next/link";
 
 export default function PortfolioWebsitePage() {
   return (
     <main className="max-w-3xl mx-auto px-4 py-16">
-      <a
+      <Link
         href="/#projects"
         className="fixed top-6 left-6 z-50 inline-flex items-center gap-2 text-[var(--accent)] font-semibold hover:text-blue-400 transition-colors duration-200 bg-black/70 px-4 py-2 rounded-full shadow-lg backdrop-blur"
         style={{ textDecoration: 'none' }}
@@ -12,7 +14,7 @@ export default function PortfolioWebsitePage() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
         Back to Projects
-      </a>
+      </Link>
       <h1 className="text-4xl font-bold mb-4 text-[var(--accent)]">Portfolio Website</h1>
       <p className="mb-6 text-lg text-gray-300">
         A modern, responsive portfolio built with Next.js, TypeScript, and Tailwind CSS. Features a homepage introduction, about section, project showcase with details pages, contact form, starfield background, and a RAG chatbot powered by n8n, Supabase, and Hugging Face embeddings.

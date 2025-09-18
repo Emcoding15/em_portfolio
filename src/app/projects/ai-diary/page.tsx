@@ -1,11 +1,13 @@
 
+
 import React from "react";
+import Link from "next/link";
 
 
 export default function AIDiaryPage() {
   return (
       <main className="max-w-3xl mx-auto px-4 py-16 relative">
-        <a
+        <Link
           href="/#projects"
           className="fixed top-6 left-6 z-50 inline-flex items-center gap-2 text-[var(--accent)] font-semibold hover:text-blue-400 transition-colors duration-200 bg-black/70 px-4 py-2 rounded-full shadow-lg backdrop-blur"
           style={{ textDecoration: 'none' }}
@@ -14,7 +16,7 @@ export default function AIDiaryPage() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
           Back to Home
-        </a>
+        </Link>
         <h1 className="text-4xl font-bold mb-4 text-[var(--accent)]">AI Diary</h1>
         <p className="mb-6 text-lg text-gray-300">
           An AI-powered, voice-first journal app that transforms your spoken thoughts into organized, searchable diary entries.
