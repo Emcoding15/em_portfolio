@@ -43,33 +43,7 @@ const AboutSection: React.FC = () => (
           </p>
         </motion.div>
 
-        <motion.div
-          className="bg-gradient-to-br from-[var(--gray)] to-[#0f0f0f] rounded-2xl p-8 border border-[var(--accent)]/20"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 1, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
-        >
-          <h3 className="text-2xl font-bold text-[var(--accent)] mb-4">Quick Facts</h3>
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 bg-[var(--accent)] rounded-full"></div>
-              <span className="text-gray-300">Computer Science Graduate</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 bg-[var(--accent)] rounded-full"></div>
-              <span className="text-gray-300">Full-Stack Developer</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 bg-[var(--accent)] rounded-full"></div>
-              <span className="text-gray-300">Quick to Adapt</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 bg-[var(--accent)] rounded-full"></div>
-              <span className="text-gray-300">Eager to learn more</span>
-            </div>
-          </div>
-        </motion.div>
+        {/* Quick Facts section removed as requested */}
       </div>
     </div>
 

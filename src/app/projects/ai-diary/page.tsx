@@ -1,6 +1,7 @@
 
 
 import React from "react";
+import ProjectScreenshotCard from "@/components/ProjectScreenshotCard";
 
 import BackButton from "@/components/BackButton";
 
@@ -13,6 +14,14 @@ export default function AIDiaryPage() {
         <p className="mb-6 text-lg text-gray-300">
           An AI-powered, voice-first journal app that transforms your spoken thoughts into organized, searchable diary entries.
         </p>
+        <div className="mb-8">
+          <ProjectScreenshotCard
+            image="/projects/ai_diary/screenshots/login.png"
+            alt="AI Diary Login Screenshot"
+            title="Login Page"
+            description="Secure login with email, password, and Google Sign-In. Modern Material 3 UI."
+          />
+        </div>
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-2">Key Features</h2>
           <ul className="list-disc list-inside text-gray-200 space-y-1">
