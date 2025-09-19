@@ -19,7 +19,7 @@ const HeroSection: React.FC = () => (
       >
           <h1 className="font-extrabold text-[4rem] md:text-[6rem] text-[var(--foreground)] leading-none mb-2" style={{letterSpacing: '-2px', fontFamily: 'Poppins, sans-serif'}}>John Guerra</h1>
           <h2 className="font-bold text-[2rem] md:text-[2.5rem] text-gray-400 mb-6" style={{letterSpacing: '-1px', fontFamily: 'Poppins, sans-serif'}}>Software Developer</h2>
-          <p className="text-lg md:text-xl text-gray-400 mb-8" style={{fontFamily: 'Poppins, sans-serif'}}>Building clean, modern web experiences</p>
+          <p className="text-lg md:text-xl text-gray-400 mb-8" style={{fontFamily: 'Poppins, sans-serif'}}>Designing and building digital solutions that connect ideas to reality.</p>
         <motion.div
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           initial={{ opacity: 0, y: 20 }}
