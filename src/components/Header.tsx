@@ -60,8 +60,8 @@ export default function Header() {
               </span>
             </Link>
           </div>
-          {/* Navigation Links with Active Indicator */}
-          <nav className="hidden md:flex space-x-8">
+          {/* Navigation Links with Active Indicator and Resume Button */}
+          <nav className="hidden md:flex space-x-8 items-center">
             {[
               { href: "#home", label: "Home" },
               { href: "#about", label: "About" },
@@ -104,6 +104,19 @@ export default function Header() {
                 </motion.div>
               );
             })}
+            {/* Download Resume Button */}
+            <a
+              href="/CV%20-%20Guerra(Latest).pdf"
+              download
+              className="ml-4 pl-3 pr-4 py-2 rounded-full bg-[var(--accent)]/10 hover:bg-[var(--accent)]/20 text-[var(--accent)] transition-colors duration-150 flex items-center gap-1"
+              style={{ textDecoration: 'none', fontSize: '0.98rem', fontWeight: 500 }}
+              title="Download CV"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+              </svg>
+              <span className="ml-1 text-[var(--accent)] text-xs" style={{fontWeight: 500}}>Download CV</span>
+            </a>
           </nav>
 
           {/* Mobile Menu Button with enhanced animation */}
