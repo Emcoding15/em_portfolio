@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import MarkdownMessage from './MarkdownMessage';
 
@@ -16,17 +16,26 @@ const ChatbotWidget: React.FC = () => {
   const [messages, setMessages] = useState<{ role: 'user' | 'bot'; text: string }[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
+  // Auto-scroll to bottom when messages change
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages, loading]);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
-    setMessages([...messages, { role: 'user', text: input }]);
+  const newMessages: { role: 'user' | 'bot'; text: string }[] = [...messages, { role: 'user', text: input }];
+    setMessages(newMessages);
     setLoading(true);
     try {
-      // Call semantic search API and display LLM answer
+      // Call semantic search API and display LLM answer, sending full conversation history
       const res = await fetch('/api/semantic-search', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: input }),
+        body: JSON.stringify({ messages: newMessages }),
       });
       const data = await res.json();
       const llmAnswer = data.llmAnswer || 'No answer generated.';
@@ -104,6 +113,7 @@ const ChatbotWidget: React.FC = () => {
                 </div>
               ))}
               {loading && <div className="text-gray-400 text-base">Bot is typing...</div>}
+              <div ref={messagesEndRef} />
             </div>
             {/* Input */}
             <div className="p-4 border-t border-gray-800 bg-[#23232a] rounded-b-2xl flex gap-3">

@@ -2,8 +2,15 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
-    const { query } = await request.json();
-    
+    const body = await request.json();
+    const messages = body.messages;
+    let query = body.query;
+    // If messages array is provided, use the last user message as query
+    if (Array.isArray(messages) && messages.length > 0) {
+      // Find the last user message
+      const lastUserMsg = [...messages].reverse().find((m) => m.role === 'user');
+      query = lastUserMsg?.text || query;
+    }
     if (!query) {
       return NextResponse.json({ error: 'Missing query' }, { status: 400 });
     }
@@ -91,7 +98,12 @@ export async function POST(request: Request) {
 
     // Concatenate context from top results
     const context = results?.map((r: { content: string }) => r.content).join('\n\n') || '';
-  const prompt = `You are Em's friendly portfolio assistant. Use the context below to answer the user's question. If you don't know, say so. Be concise and helpful.\n\nContext:\n${context}\n\nUser: ${query}\n\nAnswer:`;
+    // Build a conversation history for the LLM
+    let chatHistory = '';
+    if (Array.isArray(messages)) {
+      chatHistory = messages.map((m) => `${m.role === 'user' ? 'User' : 'Bot'}: ${m.text}`).join('\n');
+    }
+  const prompt = `You are Em's friendly portfolio assistant. Use the context below to answer the user's question. If you don't know, say so. Be detailed, thorough, and helpful. When possible, provide step-by-step explanations, examples, or additional insights.\n\nContext:\n${context}\n\nConversation so far:\n${chatHistory}\n\nAnswer:`;
 
     // Log request details for debugging
     console.log('[DEBUG] OpenRouter request:', {
@@ -115,7 +127,7 @@ export async function POST(request: Request) {
             { role: 'system', content: 'You are a helpful assistant for portfolio Q&A.' },
             { role: 'user', content: prompt }
           ],
-          max_tokens: 800,
+          max_tokens: 1200,
           temperature: 0.5
         }),
       });
