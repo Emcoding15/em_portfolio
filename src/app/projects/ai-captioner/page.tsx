@@ -37,6 +37,17 @@ export default function AICaptionerPage() {
         </ol>
       </section>
       <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-2">Links</h2>
+        <a
+          href="https://github.com/Emcoding15/ai_captioner"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[var(--accent)] underline font-medium"
+        >
+          View on GitHub
+        </a>
+      </section>
+      <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-2">Why do I need to add my own API key?</h2>
         <ul className="list-disc list-inside text-gray-200 space-y-1">
           <li><b>Privacy:</b> Your API key is never shared with the app creator or other users.</li>
@@ -52,14 +63,15 @@ export default function AICaptionerPage() {
           <li>If you need help, check the Google Gemini API documentation or your Google Cloud Console.</li>
         </ul>
       </section>
-      <a
-        href="https://github.com/Emcoding15/ai_captioner"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block px-6 py-2 bg-[var(--accent)] text-black font-semibold rounded-lg shadow hover:bg-blue-400 transition-colors"
-      >
-        View on GitHub
-      </a>
+      <section>
+        <h2 className="text-2xl font-semibold mb-2">Project Overview</h2>
+        <p className="text-gray-300 mb-2">
+          AI Captioner is a web application that leverages Google Gemini AI to generate descriptive captions for uploaded images. Designed for accessibility and productivity, it features a modern UI, secure API key handling, and real-time captioning. The app is ideal for content creators, educators, and anyone needing quick, accurate image descriptions.
+        </p>
+        <p className="text-gray-300">
+          Your API key and data remain private, and the intuitive interface ensures a seamless user experience. Explore the features and try generating captions for your own images!
+        </p>
+      </section>
     </main>
   );
 }
