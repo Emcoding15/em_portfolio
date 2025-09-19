@@ -64,6 +64,10 @@ const AboutSection: React.FC = () => (
               <div className="w-2 h-2 bg-[var(--accent)] rounded-full"></div>
               <span className="text-gray-300">Quick to Adapt</span>
             </div>
+            <div className="flex items-center gap-3">
+              <div className="w-2 h-2 bg-[var(--accent)] rounded-full"></div>
+              <span className="text-gray-300">Eager to learn more</span>
+            </div>
           </div>
         </motion.div>
       </div>
