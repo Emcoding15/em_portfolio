@@ -2,21 +2,22 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 
-interface Screenshot {
+interface Certificate {
   image: string;
-  alt: string;
   title: string;
+  issuer: string;
+  date: string;
   description: string;
 }
 
-interface ProjectScreenshotCardProps {
-  screenshots: Screenshot[];
+interface CertificateCarouselProps {
+  certificates: Certificate[];
   autoPlay?: boolean;
   autoPlayDelay?: number;
 }
 
-const ProjectScreenshotCard: React.FC<ProjectScreenshotCardProps> = ({
-  screenshots,
+const CertificateCarousel: React.FC<CertificateCarouselProps> = ({
+  certificates,
   autoPlay = false,
   autoPlayDelay = 4000
 }) => {
@@ -27,26 +28,26 @@ const ProjectScreenshotCard: React.FC<ProjectScreenshotCardProps> = ({
   const touchStartX = useRef<number | null>(null);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
-  const currentScreenshot = screenshots[currentIndex];
+  const currentCertificate = certificates[currentIndex];
 
   // Navigation functions with smooth transitions
   const goToNext = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % screenshots.length);
+      setCurrentIndex((prev) => (prev + 1) % certificates.length);
       setIsTransitioning(false);
     }, 150);
-  }, [screenshots.length, isTransitioning]);
+  }, [certificates.length, isTransitioning]);
 
   const goToPrev = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setTimeout(() => {
-      setCurrentIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length);
+      setCurrentIndex((prev) => (prev - 1 + certificates.length) % certificates.length);
       setIsTransitioning(false);
     }, 150);
-  }, [screenshots.length, isTransitioning]);
+  }, [certificates.length, isTransitioning]);
 
   const goToIndex = useCallback((index: number) => {
     if (isTransitioning || index === currentIndex) return;
@@ -83,36 +84,22 @@ const ProjectScreenshotCard: React.FC<ProjectScreenshotCardProps> = ({
     const touchEndX = e.changedTouches[0].clientX;
     const diff = touchStartX.current - touchEndX;
     
-    if (Math.abs(diff) > 50) { // Minimum swipe distance
+    if (Math.abs(diff) > 50) {
       if (diff > 0) {
-        goToNext(); // Swipe left = next
+        goToNext();
       } else {
-        goToPrev(); // Swipe right = previous
+        goToPrev();
       }
     }
     
     touchStartX.current = null;
   };
 
-  useEffect(() => {
-    if (modalOpen) {
-      // Debug: log modal open and window size
-      console.debug('[ProjectScreenshotCard] Modal opened', {
-        width: window.innerWidth,
-        height: window.innerHeight,
-        image: currentScreenshot?.image,
-        alt: currentScreenshot?.alt,
-        currentIndex
-      });
-    } else {
-      console.debug('[ProjectScreenshotCard] Modal closed');
-    }
-  }, [modalOpen, currentScreenshot?.image, currentScreenshot?.alt, currentIndex]);
-
   // Close modal on ESC
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === "Escape") setModalOpen(false);
   }, []);
+
   useEffect(() => {
     if (!modalOpen) return;
     window.addEventListener("keydown", handleKeyDown);
@@ -121,86 +108,90 @@ const ProjectScreenshotCard: React.FC<ProjectScreenshotCardProps> = ({
 
   const cardContent = (
     <div 
-      className="flex flex-col md:flex-row items-center bg-[var(--gray)]/80 border border-[var(--accent)]/30 rounded-2xl shadow-lg p-6 md:p-8 gap-6 md:gap-10 transition-transform hover:scale-[1.02] hover:shadow-2xl cursor-pointer min-h-[300px]"
+      className="bg-gradient-to-br from-[var(--gray)] to-[#0f0f0f] rounded-2xl p-6 border border-[var(--accent)]/20 min-h-[320px] transition-transform hover:scale-[1.02] hover:shadow-lg"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <div className="relative flex-shrink-0">
+      {/* Certificate Image */}
+      <div className="relative mb-4">
         <img
-          src={currentScreenshot?.image}
-          alt={currentScreenshot?.alt}
-          className={`w-32 h-64 object-contain rounded-xl bg-black/80 border border-blue-300 shadow-md transition-opacity duration-300 ${isTransitioning ? 'opacity-50' : 'opacity-100'}`}
-          onClick={e => {
-            e.stopPropagation();
-            setModalOpen(true);
-          }}
-          style={{ cursor: "zoom-in" }}
+          src={currentCertificate?.image}
+          alt={`${currentCertificate?.title} certificate`}
+          className={`w-full h-48 object-contain rounded-lg bg-white/95 border border-[var(--accent)]/30 shadow-md transition-opacity duration-300 cursor-zoom-in p-2 ${isTransitioning ? 'opacity-50' : 'opacity-100'}`}
+          onClick={() => setModalOpen(true)}
         />
         {/* Auto-play indicator */}
         {autoPlay && !isPaused && !modalOpen && (
-          <div className="absolute top-2 left-2 w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+          <div className="absolute top-2 right-2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
         )}
       </div>
-      <div className="flex-1 flex flex-col justify-center items-start gap-2 min-h-[200px]">
-        <h3 className="text-2xl font-bold text-white mb-1">{currentScreenshot?.title}</h3>
-        <p className="text-base text-gray-100 mb-2">{currentScreenshot?.description}</p>
-        
-        {/* Dot indicators */}
-        <div className="flex gap-2 mt-4">
-          {screenshots.map((_, index) => (
-            <button
-              key={index}
-              onClick={(e) => { e.stopPropagation(); goToIndex(index); }}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex 
-                  ? 'bg-[var(--accent)] w-6' 
-                  : 'bg-gray-500 hover:bg-gray-400'
-              }`}
-              aria-label={`Go to screenshot ${index + 1}`}
-            />
-          ))}
-        </div>
+
+      {/* Certificate Info */}
+      <div className="space-y-2 mb-4">
+        <h4 className="text-lg font-bold text-[var(--accent)]">{currentCertificate?.title}</h4>
+        <p className="text-sm text-gray-300">{currentCertificate?.issuer}</p>
+        <p className="text-xs text-gray-400">{currentCertificate?.date}</p>
+        <p className="text-sm text-gray-200 leading-relaxed">{currentCertificate?.description}</p>
       </div>
-      
-      {/* Navigation controls */}
-      <div className="flex flex-col items-center gap-4 flex-shrink-0">
+
+      {/* Navigation Controls */}
+      <div className="flex items-center justify-between">
         <div className="flex gap-2">
           <button
-            onClick={(e) => { e.stopPropagation(); goToPrev(); }}
+            onClick={goToPrev}
             className="p-2 rounded-full bg-[var(--accent)]/20 hover:bg-[var(--accent)]/40 text-white transition-colors disabled:opacity-50"
             disabled={isTransitioning}
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <button
-            onClick={(e) => { e.stopPropagation(); goToNext(); }}
+            onClick={goToNext}
             className="p-2 rounded-full bg-[var(--accent)]/20 hover:bg-[var(--accent)]/40 text-white transition-colors disabled:opacity-50"
             disabled={isTransitioning}
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </button>
         </div>
-        <div className="text-sm text-gray-400">
-          {currentIndex + 1} of {screenshots.length}
+
+        {/* Dot Indicators */}
+        <div className="flex gap-1">
+          {certificates.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentIndex 
+                  ? 'bg-[var(--accent)] w-4' 
+                  : 'bg-gray-500 hover:bg-gray-400'
+              }`}
+              aria-label={`Go to certificate ${index + 1}`}
+            />
+          ))}
         </div>
-        {/* Progress bar */}
-        <div className="w-16 h-1 bg-gray-600 rounded-full overflow-hidden">
-          <div 
-            className="h-full bg-[var(--accent)] transition-all duration-300"
-            style={{ width: `${((currentIndex + 1) / screenshots.length) * 100}%` }}
-          />
+
+        {/* Counter */}
+        <div className="text-xs text-gray-400">
+          {currentIndex + 1} of {certificates.length}
         </div>
+      </div>
+
+      {/* Progress Bar */}
+      <div className="w-full h-1 bg-gray-600 rounded-full overflow-hidden mt-3">
+        <div 
+          className="h-full bg-[var(--accent)] transition-all duration-300"
+          style={{ width: `${((currentIndex + 1) / certificates.length) * 100}%` }}
+        />
       </div>
     </div>
   );
 
-  // Render modal at the end, outside the card, using React Portal
+  // Modal for full certificate view
   const modal = modalOpen && typeof window !== "undefined"
     ? ReactDOM.createPortal(
         <div
@@ -217,24 +208,25 @@ const ProjectScreenshotCard: React.FC<ProjectScreenshotCardProps> = ({
             <button
               className="absolute top-2 right-2 text-white text-3xl font-bold bg-black/60 rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/90 transition"
               onClick={() => setModalOpen(false)}
-              aria-label="Close screenshot modal"
+              aria-label="Close certificate modal"
               style={{ zIndex: 10 }}
             >
               ×
             </button>
             <img
-              src={currentScreenshot?.image}
-              alt={currentScreenshot?.alt}
-              className="rounded-xl border border-[var(--accent)] shadow-2xl bg-black"
+              src={currentCertificate?.image}
+              alt={`${currentCertificate?.title} certificate`}
+              className="rounded-xl border border-[var(--accent)] shadow-2xl bg-white"
               style={{
                 objectFit: "contain",
                 maxHeight: '80vh',
-                maxWidth: '400px',
+                maxWidth: '80vw',
                 boxShadow: '0 8px 32px 0 rgba(0,0,0,0.45)'
               }}
             />
             <div className="mt-4 text-gray-200 text-center text-base max-w-lg">
-              {currentScreenshot?.alt}
+              <h3 className="text-xl font-bold text-[var(--accent)] mb-2">{currentCertificate?.title}</h3>
+              <p className="text-sm text-gray-300">{currentCertificate?.issuer} • {currentCertificate?.date}</p>
             </div>
           </div>
         </div>,
@@ -245,4 +237,4 @@ const ProjectScreenshotCard: React.FC<ProjectScreenshotCardProps> = ({
   return <>{cardContent}{modal}</>;
 };
 
-export default ProjectScreenshotCard;
+export default CertificateCarousel;

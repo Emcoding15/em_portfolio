@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import SkillTag from "../components/SkillTag";
+import CertificateCarousel from "../components/CertificateCarousel";
 import { skillGroups } from "../data/skills";
 
 const AboutSection: React.FC = () => (
@@ -43,7 +44,29 @@ const AboutSection: React.FC = () => (
           </p>
         </motion.div>
 
-        {/* Quick Facts section removed as requested */}
+        {/* Certificates Carousel */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
+        >
+          <h3 className="text-2xl font-bold text-[var(--accent)] mb-4 text-center">Certifications</h3>
+          <CertificateCarousel
+            autoPlay={true}
+            autoPlayDelay={5000}
+            certificates={[
+              {
+                image: "/certificates/nodejs_intermediate certificate.png",
+                title: "Node.js Intermediate",
+                issuer: "Online Learning Platform",
+                date: "2024",
+                description: "Intermediate level Node.js certification covering advanced backend development concepts."
+              }
+              // Add more certificates here as you get them
+            ]}
+          />
+        </motion.div>
       </div>
     </div>
 

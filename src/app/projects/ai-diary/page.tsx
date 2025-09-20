@@ -8,20 +8,67 @@ import BackButton from "@/components/BackButton";
 
 export default function AIDiaryPage() {
   return (
-    <main className="max-w-3xl mx-auto px-4 py-16 relative">
+    <main className="max-w-6xl mx-auto px-4 py-16 relative">
       <BackButton />
-        <h1 className="text-4xl font-bold mb-4 text-[var(--accent)]">AI Diary</h1>
-        <p className="mb-6 text-lg text-gray-300">
-          An AI-powered, voice-first journal app that transforms your spoken thoughts into organized, searchable diary entries.
-        </p>
-        <div className="mb-8">
-          <ProjectScreenshotCard
-            image="/projects/ai_diary/screenshots/login.png"
-            alt="AI Diary Login Screenshot"
-            title="Login Page"
-            description="Secure login with email, password, and Google Sign-In. Modern Material 3 UI."
-          />
-        </div>
+      <h1 className="text-4xl font-bold mb-4 text-[var(--accent)]">AI Diary</h1>
+      <p className="mb-6 text-lg text-gray-300">
+        An AI-powered, voice-first journal app that transforms your spoken thoughts into organized, searchable diary entries.
+      </p>
+      {/* Screenshots Carousel */}
+      <div className="mb-8">
+        <ProjectScreenshotCard
+          screenshots={[
+            {
+              image: "/projects/ai_diary/screenshots/login.png",
+              alt: "AI Diary Login Screenshot",
+              title: "Login Page",
+              description: "Secure login with email, password, and Google Sign-In. Modern Material 3 UI."
+            },
+            {
+              image: "/projects/ai_diary/screenshots/home_page.png",
+              alt: "AI Diary Home Page Screenshot",
+              title: "Home Page",
+              description: "Dashboard with quick access to recent entries, stats, and voice recording."
+            },
+            {
+              image: "/projects/ai_diary/screenshots/recording_page.png",
+              alt: "AI Diary Recording Screenshot",
+              title: "Recording Page",
+              description: "Voice-first entry creation with real-time transcription and AI feedback."
+            },
+            {
+              image: "/projects/ai_diary/screenshots/entry_card.png",
+              alt: "AI Diary Entry Card Screenshot",
+              title: "Entry Card",
+              description: "Beautifully formatted diary entries with AI-generated titles and summaries."
+            },
+            {
+              image: "/projects/ai_diary/screenshots/calendar_page.png",
+              alt: "AI Diary Calendar Screenshot",
+              title: "Calendar View",
+              description: "Browse and filter entries by date in a modern calendar interface."
+            },
+            {
+              image: "/projects/ai_diary/screenshots/search.png",
+              alt: "AI Diary Search Screenshot",
+              title: "Search & Filter",
+              description: "Powerful search and filter to quickly find past entries by keyword or tag."
+            },
+            {
+              image: "/projects/ai_diary/screenshots/favorite_entries.png",
+              alt: "AI Diary Favorites Screenshot",
+              title: "Favorites",
+              description: "Mark and view your favorite diary entries for easy access."
+            },
+            {
+              image: "/projects/ai_diary/screenshots/settings.png",
+              alt: "AI Diary Settings Screenshot",
+              title: "Settings",
+              description: "Customize themes, privacy, and app preferences."
+            }
+          ]}
+        />
+      </div>
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-2">Key Features</h2>
           <ul className="list-disc list-inside text-gray-200 space-y-1">
