@@ -71,6 +71,14 @@ const AboutSection: React.FC = () => (
                 date: "2025",
                 description: "Advanced level SQL certification covering complex database queries and optimization.",
                 link: "https://www.hackerrank.com/certificates/f40b850c85ee" 
+              },
+              {
+                image: "/certificates/cybersecurity_101_STI.png",
+                title: "Cybersecurity 101: Cybersecurity for Everyone",
+                issuer: "STI Dasmariñas",
+                date: "December 2024",
+                description: "Certificate of participation in cybersecurity fundamentals seminar covering essential security concepts.",
+                link: "https://drive.google.com/drive/folders/1TtP55DY27XARNM7cj4-8CqrFjlNbjrU2?usp=drive_link" // Add verification link if available
               }
             ]}
           />
