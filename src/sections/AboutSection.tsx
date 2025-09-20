@@ -59,11 +59,19 @@ const AboutSection: React.FC = () => (
               {
                 image: "/certificates/nodejs_intermediate certificate.png",
                 title: "Node.js Intermediate",
-                issuer: "Online Learning Platform",
-                date: "2024",
-                description: "Intermediate level Node.js certification covering advanced backend development concepts."
+                issuer: "HackerRank",
+                date: "2025",
+                description: "Intermediate level Node.js certification covering advanced backend development concepts.",
+                link: "https://www.hackerrank.com/certificates/1c76b0d8bda5"
+              },
+              {
+                image: "/certificates/sql_advance.png",
+                title: "SQL Advanced",
+                issuer: "HackerRank",
+                date: "2025",
+                description: "Advanced level SQL certification covering complex database queries and optimization.",
+                link: "https://www.hackerrank.com/certificates/f40b850c85ee" 
               }
-              // Add more certificates here as you get them
             ]}
           />
         </motion.div>

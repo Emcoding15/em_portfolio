@@ -8,6 +8,7 @@ interface Certificate {
   issuer: string;
   date: string;
   description: string;
+  link?: string; // Optional link to certificate verification
 }
 
 interface CertificateCarouselProps {
@@ -108,18 +109,18 @@ const CertificateCarousel: React.FC<CertificateCarouselProps> = ({
 
   const cardContent = (
     <div 
-      className="bg-gradient-to-br from-[var(--gray)] to-[#0f0f0f] rounded-2xl p-6 border border-[var(--accent)]/20 min-h-[320px] transition-transform hover:scale-[1.02] hover:shadow-lg"
+      className="bg-gradient-to-br from-[var(--gray)] to-[#0f0f0f] rounded-2xl p-4 border border-[var(--accent)]/20 transition-transform hover:scale-[1.02] hover:shadow-lg max-w-md mx-auto"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
       {/* Certificate Image */}
-      <div className="relative mb-4">
+      <div className="relative mb-3">
         <img
           src={currentCertificate?.image}
           alt={`${currentCertificate?.title} certificate`}
-          className={`w-full h-48 object-contain rounded-lg bg-white/95 border border-[var(--accent)]/30 shadow-md transition-opacity duration-300 cursor-zoom-in p-2 ${isTransitioning ? 'opacity-50' : 'opacity-100'}`}
+          className={`w-full max-h-40 object-contain rounded-lg bg-white/95 border border-[var(--accent)]/30 shadow-md transition-opacity duration-300 cursor-zoom-in p-2 ${isTransitioning ? 'opacity-50' : 'opacity-100'}`}
           onClick={() => setModalOpen(true)}
         />
         {/* Auto-play indicator */}
@@ -134,6 +135,21 @@ const CertificateCarousel: React.FC<CertificateCarouselProps> = ({
         <p className="text-sm text-gray-300">{currentCertificate?.issuer}</p>
         <p className="text-xs text-gray-400">{currentCertificate?.date}</p>
         <p className="text-sm text-gray-200 leading-relaxed">{currentCertificate?.description}</p>
+        
+        {/* Certificate Link */}
+        {currentCertificate?.link && (
+          <a
+            href={currentCertificate.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-[var(--accent)] hover:text-[var(--accent-dark)] text-sm font-medium transition-colors mt-2"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+            Verify Certificate
+          </a>
+        )}
       </div>
 
       {/* Navigation Controls */}
