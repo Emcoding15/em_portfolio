@@ -57,6 +57,14 @@ const AboutSection: React.FC = () => (
             autoPlayDelay={5000}
             certificates={[
               {
+                image: "/certificates/IBM CB0101EN Certificate _ Cognitive Class.png",
+                title: "Build Your Own Chatbot",
+                issuer: "Cognitive Class (IBM)",
+                date: "2025",
+                description: "Successfully completed and received a passing grade in 'Build Your Own Chatbot' (CB0101EN) on cognitiveclass.ai, powered by IBM Developer Skills Network.",
+                link: "https://courses.cognitiveclass.ai/certificates/801149feaa26470890f776a009c4db87#"
+              },
+              {
                 image: "/certificates/nodejs_intermediate certificate.png",
                 title: "Node.js Intermediate",
                 issuer: "HackerRank",
@@ -79,7 +87,8 @@ const AboutSection: React.FC = () => (
                 date: "December 2024",
                 description: "Certificate of participation in cybersecurity fundamentals seminar covering essential security concepts.",
                 link: "https://drive.google.com/drive/folders/1TtP55DY27XARNM7cj4-8CqrFjlNbjrU2?usp=drive_link" // Add verification link if available
-              }
+              },
+        
             ]}
           />
         </motion.div>
