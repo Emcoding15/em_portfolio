@@ -236,13 +236,3 @@ async function getChatbotAnswer(query: string) {
 6. **Configure and run n8n workflow**
     - Set up Google Drive, Hugging Face, and Supabase nodes
 
-## Future Improvements
-
-- Add authentication and user roles
-- Support more document types (Word, HTML, etc.)
-- Implement chunk re-ranking or hybrid search
-- Add streaming responses to chatbot
-- Improve error handling and logging
-- Add admin dashboard for document management
-- Optimize chunking and embedding for large documents
-
