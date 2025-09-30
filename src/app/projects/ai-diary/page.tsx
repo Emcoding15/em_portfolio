@@ -14,8 +14,20 @@ export default function AIDiaryPage() {
       <p className="mb-6 text-lg text-gray-300">
         An AI-powered, voice-first journal app that transforms your spoken thoughts into organized, searchable diary entries.
       </p>
-      {/* Screenshots Carousel */}
+      {/* APK Download Button */}
       <div className="mb-8">
+        <a
+          href="/ai-diary-apk/app-release.apk"
+          download
+          className="inline-flex items-center px-6 py-3 bg-[var(--accent)] text-white font-semibold rounded-lg shadow hover:bg-[var(--accent-dark)] transition-colors duration-200 mb-4"
+        >
+          {/* Download Icon SVG */}
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+          </svg>
+          Download AI Diary APK
+        </a>
+        {/* Screenshots Carousel */}
         <ProjectScreenshotCard
           screenshots={[
             {
