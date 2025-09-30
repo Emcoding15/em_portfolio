@@ -55,7 +55,6 @@ export const skillGroups = [
   { label: "Web Development", imgUrl: "", description: "Creating modern, responsive websites." },
   { label: "Mobile Development", imgUrl: "", description: "Developing apps for mobile platforms." },
   { label: "AI Integration", imgUrl: "", description: "Applying AI to enhance applications." },
-  { label: "Agile Development", imgUrl: "", description: "Delivering value through iterative, collaborative processes." },
   { label: "Version Control", imgUrl: "", description: "Managing code changes and collaboration with tools like Git." },
     ],
   },
