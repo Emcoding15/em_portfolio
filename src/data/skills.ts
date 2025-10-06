@@ -9,19 +9,16 @@ export const skillGroups = [
   { label: "JavaScript", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg", description: "Essential language for web development." },
   { label: "Java", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg", description: "Popular for enterprise and Android apps." },
   { label: "C#", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg", description: "Microsoft's language for desktop, web, and games." },
-  { label: "Dart", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg", description: "Language for fast, cross-platform apps (Flutter)." },
     ],
   },
   {
     category: "Frameworks & Libraries",
     skills: [
   { label: "Next.js", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg", description: "React framework for production-grade web apps." },
-  { label: "React", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg", description: "JavaScript library for building UIs." },
   { label: "Tailwind CSS", imgUrl: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/tailwind.svg", description: "Utility-first CSS framework for rapid UI." },
   { label: "Flutter", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg", description: "Google's toolkit for mobile/web apps." },
   { label: "Electron", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/electron/electron-original.svg", description: "Framework for desktop apps with web tech." },
   { label: "PyQT", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/qt/qt-original.svg", description: "Python bindings for Qt GUI development." },
-  { label: "Unity", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg", description: "Game engine for 2D/3D games and apps." },
     ],
   },
   {
@@ -30,14 +27,11 @@ export const skillGroups = [
   { label: "Supabase", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg", description: "Open source Firebase alternative with vector search." },
   { label: "MySQL", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg", description: "Popular open-source relational database." },
   { label: "Firebase", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg", description: "Google's backend platform for apps." },
-  { label: "SQL/NoSQL", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg", description: "Flexible database for modern apps." },
     ],
   },
   {
     category: "Dev Tools",
     skills: [
-  { label: "ESLint", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/eslint/eslint-original.svg", description: "Find and fix problems in your JavaScript code." },
-  { label: "PostCSS", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postcss/postcss-original.svg", description: "Tool for transforming CSS with JavaScript." },
   { label: "Git", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg", description: "Version control for code collaboration." },
   { label: "GitHub", imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg", description: "Code hosting and collaboration platform." },
   { label: "Hugging Face", imgUrl: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/hugging-face.svg", description: "AI/ML models and embeddings." },
